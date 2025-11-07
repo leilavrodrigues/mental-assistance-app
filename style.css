@@ -1,0 +1,25 @@
+/* style.css (SUBSTITUA o seu bloco inicial por este) */
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background-color: #f7f7f7; /* Fundo padrão do app */
+}
+
+/* Regra geral para todas as seções (para centralizar o conteúdo) */
+section {
+    max-width: 600px; /* Limita a largura em telas grandes */
+    margin: 0 auto;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+/* GARANTE QUE A TELA DE LOGIN CUBRA TUDO NO INÍCIO */
+#tela-login {
+    background-color: #ffffff; /* Fundo branco e sólido para cobrir */
+    min-height: 100vh; /* Ocupa 100% da altura da tela visível */
+    width: 100%;
+}
+
+/* O restante do seu CSS deve continuar aqui (botao-principal-crise, emoticon-selecao, etc.) */

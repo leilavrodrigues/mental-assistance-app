@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meu App de Saúde Mental</title>
+    
+    <link rel="stylesheet" href="style.css"> 
+</head>
+<body> 
+
+    <section id="tela-login" style="padding: 40px 20px; text-align: center;">
+        <h2>Bem-vindo(a) de Volta</h2>
+        
+        <div id="cadastro-senha">
+            <h3>Defina sua Senha de Acesso</h3>
+            <p>Esta senha irá proteger seu diário. Guarde-a bem!</p>
+            <input type="password" id="input-senha-nova" placeholder="Nova Senha" style="width: 80%; padding: 10px; margin: 10px 0;">
+            <button onclick="cadastrarSenha()" class="botao-principal-crise" style="background-color: #388e3c; padding: 15px;">
+                Criar Senha
+            </button>
+            <p style="color: red; margin-top: 10px;" id="feedback-login"></p>
+        </div>
+        
+        <div id="area-login" style="display:none;">
+            <h3>Acesso Seguro</h3>
+            <input type="password" id="input-senha-login" placeholder="Sua Senha" style="width: 80%; padding: 10px; margin: 10px 0;">
+            <button onclick="fazerLogin()" class="botao-principal-crise" style="padding: 15px;">
+                Acessar Aplicativo
+            </button>
+        </div>
+    </section>
+
+    <section id="tela-inicial" style="display:none; text-align: center; padding: 40px 20px;">
+        <h1>Bem-vindo(a)</h1>
+        <p>Você está seguro(a) para começar a cuidar da sua mente.</p>
+
+        <div style="margin: 40px 0;">
+            <button onclick="irParaAcoesDeCrise()" class="botao-principal-crise">
+                EU PRECISO DE AJUDA AGORA
+            </button>
+        </div>
+
+        <div class="opcoes-secundarias">
+            <button onclick="irParaDiario()" class="botao-secundario">
+                📝 Meu Diário de Sentimentos
+            </button>
+            <button onclick="irParaConfiguracoes()" class="botao-secundario">
+                ⚙️ Configurar Contatos
+            </button>
+            <button onclick="irParaMomentoZen()" class="botao-secundario">
+                🧘 Momento Zen / Meditação
+            </button>
+            <button onclick="irParaPsicoeducacao()" class="botao-secundario">
+                📚 Psicoeducação e Recursos
+            </button>
+        </div>
+    </section>
+
+    <section id="contatos-emergencia" style="display:none; padding: 20px;">
+        <h2>Contatos de Emergência</h2>
+        <p>Conteúdo de Ações de Crise...</p>
+        <button onclick="irParaHome()" class="botao-voltar">Voltar</button>
+    </section>
+
+    <section id="cadastro-contato" style="display:none; padding: 20px;">
+        <h2>Configurar Contatos</h2>
+        <p>Conteúdo de Cadastro de Contato...</p>
+        <button onclick="irParaHome()" class="botao-voltar">Voltar</button>
+    </section>
+
+
+    <section id="diario-sentimentos" style="display:none; padding: 20px;">
+        <h2>Meu Diário de Sentimentos</h2>
+        
+        <div id="registro-humor">
+            <h3>Como você se sente agora?</h3>
+            <div class="emoticon-selecao">
+                <button onclick="selecionarHumor('Excelente', '😊')" class="btn-humor">😊</button>
+                <button onclick="selecionarHumor('Bem', '🙂')" class="btn-humor">🙂</button>
+                <button onclick="selecionarHumor('Neutro', '😐')" class="btn-humor">😐</button>
+                <button onclick="selecionarHumor('Mal', '🙁')" class="btn-humor">🙁</button>
+                <button onclick="selecionarHumor('Péssimo', '😢')" class="btn-humor">😢</button>
+            </div>
+            <p>Humor Selecionado: <span id="humor-atual">Nenhum</span></p>
+        </div>
+
+        <div style="margin-top: 30px;">
+            <h3>O que aconteceu e por que você se sente assim?</h3>
+            <textarea id="texto-diario" placeholder="Escreva sobre o seu dia, o que desencadeou esse sentimento..." rows="6" style="width: 100%; padding: 10px; box-sizing: border-box;"></textarea>
+        </div>
+
+        <button onclick="salvarRegistro()" class="botao-salvar">Salvar Registro</button>
+        <button onclick="verHistorico()" class="botao-historico">Ver Histórico</button>
+        <button onclick="irParaHome()" class="botao-voltar">Voltar para o Início</button>
+    </section>
+
+    <section id="historico-diario" style="display:none; padding: 20px;">
+        <h2>Seu Histórico de Sentimentos</h2>
+        <p>Veja como seu humor e seus pensamentos evoluíram ao longo do tempo.</p>
+
+        <div id="lista-registros"></div>
+
+        <button onclick="irParaDiario()" class="botao-voltar" style="margin-top: 20px;">
+            Voltar para o Diário
+        </button>
+    </section>
+    
+    <section id="psicoeducacao" style="display:none; padding: 20px;">
+        <h2>📚 Psicoeducação e Ajuda</h2>
+        <div class="cartao-recurso informacao">
+            <h3>Entendendo Melhor</h3>
+            <p>Aprenda mais sobre sua saúde mental.</p>
+            <ul id="lista-artigos"></ul>
+        </div>
+        
+        <button onclick="irParaHome()" class="botao-voltar">Voltar para o Início</button>
+    </section>
+    
+    <section id="momento-zen" style="display:none; padding: 20px;">
+        <h2>🧘 Momento Zen</h2>
+        <p>Áudios e vídeos curtos para acalmar a mente e focar no presente.</p>
+
+        <div id="lista-meditacoes"></div>
+        
+        <button onclick="irParaHome()" class="botao-voltar" style="margin-top: 20px;">
+            Voltar para o Início
+        </button>
+    </section>
+
+    <script src="script.js"></script>
+
+</body>
+</html>
